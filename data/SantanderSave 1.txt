@@ -1,0 +1,33 @@
+From: 01/01/2015 to 15/03/2018
+							
+Account: XXXX XXXX XXXX 8LIN
+						
+Date: 01/03/2018
+Description: REGULAR TRANSFER FROM MR DUNCAN MICHAEL LINDSEY REFERENCE - Monthly Savings
+Amount: 200.00 	
+Balance: 1200.00 
+						
+Date: 01/02/2018
+Description: REGULAR TRANSFER FROM MR DUNCAN MICHAEL LINDSEY REFERENCE - Monthly Savings
+Amount: 200.00 	
+Balance: 1000.00 
+						
+Date: 02/01/2018
+Description: REGULAR TRANSFER FROM MR DUNCAN MICHAEL LINDSEY REFERENCE - Monthly Savings
+Amount: 200.00 	
+Balance: 800.00 
+						
+Date: 01/12/2017
+Description: REGULAR TRANSFER FROM MR DUNCAN MICHAEL LINDSEY REFERENCE - Monthly Savings
+Amount: 200.00 	
+Balance: 600.00 
+						
+Date: 01/11/2017
+Description: REGULAR TRANSFER FROM MR DUNCAN MICHAEL LINDSEY REFERENCE - Monthly Savings
+Amount: 200.00 	
+Balance: 400.00 
+						
+Date: 03/10/2017
+Description: TRANSFER FROM MR DUNCAN MICHAEL LINDSEY
+Amount: 200.00 	
+Balance: 200.00 

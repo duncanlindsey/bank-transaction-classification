@@ -2,7 +2,7 @@ Transact is a Python module to parse and categorize banking transaction data. It
 
 Currently, Transact takes csv files of transactions and outputs a csv file of parsed and categorized transactions.
 
-## How to use 
+## How to use
 
 ### Initial set up
 Set up utilities are located in the `initial_setup` subdirectory.
