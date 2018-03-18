@@ -5,9 +5,11 @@ Script for testing whilst under development
 import transact2 as tr
 
 ld = tr.Ledger()
-ld.add_transactions('data/Santander123 1.txt', 'text')
-ld.add_transactions('data/Santander123 2.txt', 'text')
-#print (ld.ledger)
+ld.add_transactions('data/Santander123 1.txt', 'santander')
+ld.add_transactions('data/Santander123 2.txt', 'santander')
+#for row in ld.ledger:
+    #print (row)
+print (ld.ledger)
 print ('Start date: %s' % ld.date_from)
 print ('End date: %s' % ld.date_to)
 print ('%s transactions' % len(ld.ledger))

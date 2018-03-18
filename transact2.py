@@ -17,21 +17,24 @@ class Ledger:
 
     def add_transactions(self, filepath, filetype):
         methods = {'csv': self.read_data_csv,
-                    'text': self.read_data_text}
+                    'santander': self.read_data_santander}
         df = methods[filetype](filepath)
         df['Account'] = filepath[filepath.find('/')+1:filepath.find(' ')]
         df['Date'] = pd.to_datetime(df['Date'], infer_datetime_format = True)
         if self.ledger is not None:
             self.ledger = pd.concat([self.ledger, df])
+            self.clean_duplicates()
         else:
             self.ledger = df
+        self.ledger = self.ledger.sort_values(by = ['Date'])
+        self.ledger.index = [i for i in range(len(self.ledger))]
         self.update_meta_data()
-
+        
     def read_data_csv(self, filepath):
         df = pd.read_csv(filepath)
         return df
     
-    def read_data_text(self, filepath):
+    def read_data_santander(self, filepath):
         values = {'Date': [],
             'Description': [],
             'Amount': [],
@@ -46,18 +49,26 @@ class Ledger:
             linVec = line.split(sep)
             if linVec[0] not in list(values.keys()):
                 continue
-            for i in range(1,len(linVec)):
-                string = ' '.join(linVec[1:])
+            string = ' '.join(linVec[1:]).strip()
+            if linVec[0] == 'Amount' or 'Balance':
+                string = string.replace('GBP', '')
             values[linVec[0]].append(string)
         df = pd.DataFrame.from_dict(values)
+
         return df
 
     def update_meta_data(self):
         self.date_from = self.ledger['Date'].min()
         self.date_to = self.ledger['Date'].max()
+    
+    def bank_reconciliation(self):
+        pass
 
     # --- ETL and parsing functions
 
+    def clean_duplicates(self):
+        self.ledger.drop_duplicates(inplace = True)
+        
     def throw_out_regex(self, col, regex):
         '''Deletes a regex-defined string from a column of the ledger'''
         self.ledger[col] = self.ledger[col].str.replace(regex, '', case = False, flags = re.IGNORECASE)
